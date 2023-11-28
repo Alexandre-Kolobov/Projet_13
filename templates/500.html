@@ -1,0 +1,20 @@
+{% extends "base_handle_errors.html" %}
+{% block title %}500 Internal Server Error{% endblock title %}
+
+{% block content %}
+
+	
+<div class="container px-5 py-5 text-center">
+    <div class="row justify-content-center">
+        <div class="col-lg-8">
+            <h1 class="page-header-ui-title mb-3 display-6">Le serveur a rencontré un problème inattendu qui l'empêche de répondre à la requête (erreur 500)</h1>
+            <h2 class="page-header-ui-title mb-3 display-6">Vous pouvez vous rediriger sur la page d'accueil</h2>
+            <a class="btn fw-500 ms-lg-4 btn-primary px-10" href="{% url 'index' %}">
+                Home
+            </a>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
+
