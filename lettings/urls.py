@@ -1,3 +1,8 @@
+"""
+URLs for letting application
+"""
+
+
 from . import views
 from django.urls import path
 

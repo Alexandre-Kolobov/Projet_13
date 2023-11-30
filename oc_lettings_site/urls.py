@@ -1,3 +1,7 @@
+"""
+URLs for oc_lettings_site application
+"""
+
 from django.contrib import admin
 from django.urls import path, include
 from . import views

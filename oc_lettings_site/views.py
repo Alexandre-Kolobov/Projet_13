@@ -1,7 +1,25 @@
+"""
+Module containing Django views for the oc_lettings_site app.
+
+Functions:
+    index - Render the oc_lettings_site index page
+
+"""
+
+from django.http import HttpRequest, HttpResponse
 from django.shortcuts import render
 
-# Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque molestie quam lobortis leo consectetur ullamcorper non id est. Praesent dictum, nulla eget feugiat sagittis, sem mi convallis eros,
-# vitae dapibus nisi lorem dapibus sem. Maecenas pharetra purus ipsum, eget consequat ipsum lobortis quis. Phasellus eleifend ex auctor venenatis tempus.
-# Aliquam vitae erat ac orci placerat luctus. Nullam elementum urna nisi, pellentesque iaculis enim cursus in. Praesent volutpat porttitor magna, non finibus neque cursus id.
-def index(request):
+
+def index(request: HttpRequest) -> HttpResponse:
+    """
+    Render the oc_lettings_site index page
+
+    Parameters:
+        request (HttpRequest): The HTTP request object
+
+    Returns:
+        HttpResponse: The HTTP response containing the rendered oc_lettings_site index page
+
+    """
+
     return render(request, 'index.html')
