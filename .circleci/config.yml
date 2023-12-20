@@ -13,8 +13,8 @@ jobs:
           name: lint
           command: flake8
       - run:
-          name: run tests
-          command: pytest
+          name: run tests and validate the coverage is upper 80%
+          command: pytest --cov=. --cov-fail-under=80
 
 workflows:
   build-and-test-workflow:

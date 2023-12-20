@@ -53,6 +53,10 @@ Dans le reste de la documentation sur le développement local, il est supposé q
 - `source venv/bin/activate`
 - `pytest`
 
+#### Couverture de test
+
+- `pytest --cov=.`
+
 #### Base de données
 
 - `cd /path/to/Python-OC-Lettings-FR`
