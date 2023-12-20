@@ -23,7 +23,7 @@ def test_oc_lettings_site_index_url():
     path = reverse('index')
 
     assert path == "/"
-    assert resolve(path).view_name == "index"
+    assert resolve(path).view_name == "indexff"
 
 
 def test_oc_lettings_site_admin_url():
