@@ -12,7 +12,8 @@ from django.urls import reverse, resolve
 from django.test import Client
 
 
-def test_oc_lettings_site_index_url():
+
+def test_oc_lettings_site_index_url():     
     """
     Testing URL path and view for the oc_lettings_site index page.
     Checks that URL for 'index' page is correctly generated.
@@ -23,7 +24,7 @@ def test_oc_lettings_site_index_url():
     path = reverse('index')
 
     assert path == "/"
-    assert resolve(path).view_name == "indexff"
+    assert resolve(path).view_name == "index"
 
 
 def test_oc_lettings_site_admin_url():
