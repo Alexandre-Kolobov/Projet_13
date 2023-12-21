@@ -20,15 +20,12 @@ jobs:
     docker:
       - image: docker:latest  # Image includes Linux with installed docker
 
-    environment:
-      IMAGE_TAG: "kolobov/p13_django_image:${CIRCLE_SHA1}"
-
     steps:
       - checkout
       - setup_remote_docker  # Starts Docker deamon and allows to execute docker commands
       - run:
           name: Build Docker container
-          command: docker build -t "$(IMAGE_TAG)" .
+          command: docker build -t "kolobov/p13_django_image:${CIRCLE_SHA1}" .
 
 workflows:
   build-and-test-workflow:
