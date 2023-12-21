@@ -21,13 +21,13 @@ jobs:
       - image: docker:latest  # Image includes Linux with installed docker
 
     environment:
-      IMAGE_TAG: "kolobov/p13_django_image/$(git rev-parse --short HEAD)"
+      IMAGE_TAG: "kolobov/p13_django_image:$(git rev-parse --short HEAD)"
 
     steps:
       - checkout
       - run:
           name: Build Docker container
-          command: docker build -t "$(IMAGE_TAG)" .
+          command: docker build -t kolobov/p13_django_image:latest .
 
 workflows:
   build-and-test-workflow:
