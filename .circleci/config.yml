@@ -28,10 +28,10 @@ jobs:
           command: docker login -u $DOCKER_USER -p $DOCKER_PASSWORD
       - run:
           name: Build Docker container
-          command: docker build -t "kolobov/p13_django_image:${CIRCLE_SHA1}" .
+          command: docker build -t "$DOCKER_USER/p13_django_image:${CIRCLE_SHA1}" .
       - run:
           name: Push Docker Image
-          command: docker push "kolobov/p13_django_image:${CIRCLE_SHA1}"
+          command: docker push "$DOCKER_USER/p13_django_image:${CIRCLE_SHA1}"
 
 workflows:
   build-and-test-workflow:
