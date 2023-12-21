@@ -21,7 +21,7 @@ jobs:
       - image: docker:latest  # Image includes Linux with installed docker
 
     environment:
-      IMAGE_TAG: "kolobov/p13_django_image:$(CIRCLE_SHA1)"
+      IMAGE_TAG: "kolobov/p13_django_image:${CIRCLE_SHA1}"
 
     steps:
       - checkout
