@@ -3,12 +3,12 @@ version: 2.1
 jobs:
   test-and-lint:
     docker:
-      - image: cimg/python:3.10.1  #To create container with python env and run inside it
+      - image: cimg/python:3.10.1  # To create container with python env and run inside it
     steps:
-      - checkout  #To extract code from actual branch to container
-      - run:  #To run a command like from a terminal
-          name: install dependencies  #Name for this action
-          command: pip install -r requirements.txt  #Command to run
+      - checkout  # To extract code from actual branch to container
+      - run:  # To run a command like from a terminal
+          name: install dependencies  # Name for this action
+          command: pip install -r requirements.txt  # Command to run
       - run:
           name: lint
           command: flake8
@@ -16,7 +16,27 @@ jobs:
           name: run tests and validate the coverage is upper 80%
           command: pytest --cov=. --cov-fail-under=80
 
+  build-docker-container:
+    docker:
+      - image: docker:latest  # Image includes Linux with installed docker
+
+    environment:
+      IMAGE_TAG: "kolobov/p13_django_image/$(git rev-parse --short HEAD)"
+
+    steps:
+      - checkout
+      - run:
+          name: Build Docker container
+          command: docker build -t "$(IMAGE_TAG)" .
+      
+      - run:
+          name: Push Docker Image
+
+
 workflows:
   build-and-test-workflow:
     jobs:
       - test-and-lint
+      - build-docker-container:
+          requires:
+            - test-and-lint
