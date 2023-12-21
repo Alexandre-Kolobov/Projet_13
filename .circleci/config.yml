@@ -28,10 +28,6 @@ jobs:
       - run:
           name: Build Docker container
           command: docker build -t "$(IMAGE_TAG)" .
-      
-      - run:
-          name: Push Docker Image
-
 
 workflows:
   build-and-test-workflow:
