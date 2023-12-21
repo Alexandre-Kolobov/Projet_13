@@ -19,13 +19,13 @@ jobs:
   build-docker-container:
     docker:
       - image: docker:latest  # Image includes Linux with installed docker
-        auth:
-          username: $DOCKER_USER  # can specify string literal values
-          password: $DOCKER_PASSWORD  # or project environment variable reference
 
     steps:
       - checkout
       - setup_remote_docker  # Starts Docker deamon and allows to execute docker commands
+      - run:
+          name: Login to DockerHub
+          command: docker login -u $DOCKER_USER -p $DOCKER_PASSWORD
       - run:
           name: Build Docker container
           command: docker build -t "kolobov/p13_django_image:${CIRCLE_SHA1}" .
