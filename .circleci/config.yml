@@ -21,7 +21,6 @@ jobs:
       - image: docker:latest  # Image includes Linux with installed docker
 
     steps:
-      - checkout
       - setup_remote_docker  # Starts Docker deamon and allows to execute docker commands
       - run:
           name: Build Docker container
