@@ -19,6 +19,9 @@ jobs:
   build-docker-container:
     docker:
       - image: docker:latest  # Image includes Linux with installed docker
+        auth:
+          username: $DOCKER_USER  # can specify string literal values
+          password: $DOCKER_PASSWORD  # or project environment variable reference
 
     steps:
       - checkout
