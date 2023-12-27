@@ -33,6 +33,20 @@ jobs:
           name: Push Docker Image
           command: docker push "$DOCKER_USER/p13_django_image:${CIRCLE_SHA1}"
 
+  deploy-docker-image:
+    machine:
+      image: ubuntu-2004:202010-01
+
+    steps:
+      - checkout
+      - run:
+          name: Build and pushe docker image to Heroku
+          command: |
+            sudo curl https://cli-assets.heroku.com/install.sh | sh
+            HEROKU_API_KEY=${HEROKU_TOKEN} heroku container:login
+            HEROKU_API_KEY=${HEROKU_TOKEN} heroku container:push -a python-django-starter web
+            HEROKU_API_KEY=${HEROKU_TOKEN} heroku container:release -a python-django-starter web
+
 workflows:
   build-and-test-workflow:
     jobs:
@@ -40,3 +54,6 @@ workflows:
       - build-docker-container:
           requires:
             - test-and-lint
+      - deploy-docker-image:
+          requires:
+            - build-docker-container
