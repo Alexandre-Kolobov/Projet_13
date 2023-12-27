@@ -20,6 +20,11 @@ jobs:
     docker:
       - image: docker:latest  # Image includes Linux with installed docker
 
+    environment:
+      DJANGO_SECRET_KEY: ${DJANGO_SECRET_KEY}
+      DEBUG: ${DEBUG}
+      SENTRY_KEY: ${SENTRY_KEY}
+
     steps:
       - checkout
       - setup_remote_docker  # Starts Docker deamon and allows to execute docker commands
