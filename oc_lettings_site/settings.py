@@ -12,12 +12,8 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/3.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-config_obj = configparser.ConfigParser()
-config_obj.read("config.ini")
-django_params = config_obj["django"]
 
-key_django_debug = django_params["key"]
-SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', default=key_django_debug)
+SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY')
 
 
 # SECURITY WARNING: don't run with debug turned on in production!
@@ -123,13 +119,7 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 STATIC_URL = '/static/'
 STATICFILES_DIRS = [BASE_DIR / "static", ]
 
-
-config_obj = configparser.ConfigParser()
-config_obj.read("config.ini")
-sentry_params = config_obj["sentry"]
-
-key_sentry_debug = sentry_params["key"]
-key = os.environ.get('SENTRY_KEY', default=key_sentry_debug)
+key = os.environ.get('SENTRY_KEY')
 
 sentry_sdk.init(
     dsn=key,
