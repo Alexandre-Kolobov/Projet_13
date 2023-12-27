@@ -122,7 +122,8 @@ config_obj = configparser.ConfigParser()
 config_obj.read("config.ini")
 sentry_params = config_obj["sentry"]
 
-key = sentry_params["key"]
+# key = sentry_params["key"]
+key = os.environ.get('SENTRY_KEY')
 
 sentry_sdk.init(
     dsn=key,
