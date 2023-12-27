@@ -58,7 +58,7 @@ workflows:
           filters:
             branches:
               only:
-                - main
+                - master
 
       - deploy-docker-image:
           requires:
