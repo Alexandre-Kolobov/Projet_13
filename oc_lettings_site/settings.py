@@ -19,6 +19,7 @@ if debug_env is False:
     DEBUG = False
 else:
     DEBUG = True
+
 ALLOWED_HOSTS = ['*']
 
 
