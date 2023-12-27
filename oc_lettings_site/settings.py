@@ -18,7 +18,7 @@ debug_env = os.environ.get('DEBUG', default=True)
 if debug_env is False:
     DEBUG = False
 else:
-    DEBUG = debug_env
+    DEBUG = True
 ALLOWED_HOSTS = ['*']
 
 
