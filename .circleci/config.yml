@@ -54,6 +54,10 @@ workflows:
       - build-docker-container:
           requires:
             - test-and-lint
+          filters:
+            branches:
+              only:
+                - main
       - deploy-docker-image:
           requires:
             - build-docker-container
