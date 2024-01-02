@@ -79,3 +79,31 @@ Utilisation de PowerShell, comme ci-dessus sauf :
 
 - Pour activer l'environnement virtuel, `.\venv\Scripts\Activate.ps1` 
 - Remplacer `which <my-command>` par `(Get-Command <my-command>).Path`
+
+### Déploiement
+
+Le déploiement est mis en place avec une pipeline CI/CD en travaillant sur la branche `master`.
+
+Le déploiement est réalisé en trois étapes:
+- Tests unitaires et linting du code
+- Si l'étape précédente est validée, une image Docker est créée et poussée sur DockerHub
+- Si l'étape précédente est validée, le code est déployé dans Heroku
+
+Les outils de CI/CD:
+- Docker et DockerHub: Docker et DockerHub permettent de créer et stocker les images de notre application
+- CircleCI: permet de mettre en place le pipeline (exécution des étapes de CI/CD)
+- Heroku: permet d'héberger notre application et de la rendre accessible publiquement
+
+La configuration requise pour que le déploiement fonctionne correctement:
+- Les tests unitaires et linting de code ne doivent pas remonter des erreurs
+- La couverture du code doit être superieur à 80%
+- L'image docker doit être crée correctemment et envoyé correctement sur DockerHub
+- Les variables d'environnment doivent être definis sur Heroku
+
+Les étapes à suivre pour effectuer le déploiement:
+- Créer une branche pour réaliser des corrections ou améliorations (ne pas travailler dans branch master directement)
+- Ajouter les tests unitaires si nécessaire
+- Réaliser le commit et push de cette nouvelle branche
+- Voir les logs dans CircleCI pour avoir un retour pour les tests et linting
+- Si tous les feux verts sont ok, vous pouvez merger vos modifications dans la branche `master` et faire un push
+- Voir les logs dans CircleCI pour avoir un retour pour les tests, linting, création de l'image et le déploiement sur Heroku
