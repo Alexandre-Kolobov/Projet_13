@@ -37,7 +37,7 @@ def letting(request: HttpRequest, letting_id: int) -> HttpResponse:
 
     Parameters:
         request (HttpRequest): The HTTP request object
-        
+
         letting_id (int): The id of letting object
 
     Returns:

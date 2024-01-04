@@ -57,7 +57,7 @@ class Letting(models.Model):
 
     Attributes:
         title (CharField): The title of letting.
-        
+
         address (Address): The adress of letting.
 
     Methods:
