@@ -20,7 +20,7 @@ class Profile(models.Model):
         favorite_city (CharField): The name of the user's favorite city (64 characters).
 
     Methods:
-        __str__(): Returns a string representation of the profile.
+        __str__(): Returns a string representation of the profile
 
     Meta:
         verbose_name_plural (str): The plural name for the model in the Django admin.
