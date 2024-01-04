@@ -3,6 +3,7 @@ Module containing Django views for the profile app.
 
 Functions:
     index - Render the profiles index page
+
     profile - Render the profile page for selected username
 
 """
@@ -35,6 +36,7 @@ def profile(request: HttpRequest, username: str) -> HttpResponse:
 
     Parameters:
         request (HttpRequest): The HTTP request object
+
         username (str): The username of selected profile
 
     Returns:

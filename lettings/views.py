@@ -2,8 +2,9 @@
 Module containing Django views for the lettings app.
 
 Functions:
-    index - Render the lettings index page
-    letting - Render the letting page for selected id
+    index - Render the lettings index page.
+
+    letting - Render the letting page for selected id.
 
 """
 
@@ -36,6 +37,7 @@ def letting(request: HttpRequest, letting_id: int) -> HttpResponse:
 
     Parameters:
         request (HttpRequest): The HTTP request object
+        
         letting_id (int): The id of letting object
 
     Returns:

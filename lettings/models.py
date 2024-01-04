@@ -3,6 +3,7 @@ Module containing Django models for the lettings app.
 
 Classes:
     Address
+
     Letting
 
 """
@@ -17,10 +18,15 @@ class Address(models.Model):
 
     Attributes:
         number (PositiveIntegerField): The street number of the address.
+
         street (CharField): The name of the street (64 characters).
+
         city (CharField): The city where the address is located (64 characters).
+
         state (CharField): The state or region code (2 characters).
+
         zip_code (PositiveIntegerField): The ZIP code of the address.
+
         country_iso_code (CharField): The ISO code of the country (3 characters).
 
     Methods:
@@ -51,6 +57,7 @@ class Letting(models.Model):
 
     Attributes:
         title (CharField): The title of letting.
+        
         address (Address): The adress of letting.
 
     Methods:

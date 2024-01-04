@@ -16,6 +16,7 @@ class Profile(models.Model):
 
     Attributes:
         user (User): The user attached to this profile.
+        
         favorite_city (CharField): The name of the user's favorite city (64 characters).
 
     Methods:

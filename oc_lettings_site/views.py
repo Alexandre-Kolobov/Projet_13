@@ -32,6 +32,7 @@ def custom_page_not_found_view(request: HttpRequest, exception: Exception = None
 
     Parameters:
         request (HttpRequest): The HTTP request object
+
         exception (Exception): The exception that triggered the 404 error, if available.
     Returns:
         HttpResponse: The HTTP response containing the rendered oc_lettings_site 404 page
