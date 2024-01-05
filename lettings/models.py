@@ -59,6 +59,7 @@ class Letting(models.Model):
         title (CharField): The title of letting.
 
         address (Address): The adress of letting.
+        Has one to one reletionship with model letting.Address
 
     Methods:
         __str__(): Returns a string representation of the letting.
