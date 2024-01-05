@@ -3,7 +3,7 @@ Deployment
 
 Description
 -----------
-Deployment is set up using a CI/CD pipeline,whe commit on the master branch.
+Deployment is set up using a CI/CD pipeline, when commit on the master branch.
 
 The deployment process consists of three steps:
 
